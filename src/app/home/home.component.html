@@ -1,0 +1,15 @@
+<body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg); 
+background-repeat: no-repeat; 
+background-size: cover; 
+height:953px;;">
+    <nav class="navbar navbar-dark bg-dark">
+        <div>
+            <a class="navbar-brand" style="margin-left: 1rem;cursor:context-menu;" routerLink="/home">Home</a>
+            <a class="navbar-brand" routerLink="employee" style="margin-left: 1rem;">Employee</a>
+            <a class="navbar-brand" routerLink="company" style="margin-left: 1rem;">Company</a>
+            <a class="navbar-brand" routerLink="branch" style="margin-left: 1rem;">Branch</a>
+        </div>
+        <button class="btn btn-primary" style="margin-right: 2rem;" routerLink="" (click)="logoutFun()">Sign Out</button>
+    </nav>
+        <router-outlet></router-outlet>
+</body>
