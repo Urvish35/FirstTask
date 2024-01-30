@@ -25,6 +25,7 @@ export class LoginService implements OnInit{
     return localStorage.getItem('token')
   }
   ngOnInit(){
+    console.log("done mar bhai");
     
   }
 
