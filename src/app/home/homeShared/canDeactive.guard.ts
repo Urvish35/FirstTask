@@ -7,12 +7,13 @@ export const CanDeactivate = ()=>{
     const ls  = inject(HomeDataService)
     const rt = inject(Router);
 
-    if(ls.getToken() === '"returnToken"'){
-        rt.navigate(['/home'])
-        return false;
+    if(ls.getToken() === '"AuthKey"'){
+        // rt.navigate(['/home'])
+        return true;
     }
     else{
+        rt.navigate(['form/signIn'])
         
-        return true;
+        return false;
     }
 }

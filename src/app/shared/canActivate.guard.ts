@@ -8,10 +8,10 @@ export const CanActivate = ()=>{
     const rt = inject(Router);
 
     if(ls.getToken() === '"AuthKey"'){
-        return true;
+        rt.navigate(['home'])
+        return false;
     }
     else{
-        rt.navigate(['signIn'])
-        return false;
+        return true;
     }
 }

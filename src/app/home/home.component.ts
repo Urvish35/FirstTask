@@ -12,11 +12,13 @@ export class HomeComponent {
 
   constructor(private rt:Router,private sr:LoginService,private hds:HomeDataService){
     sr.isUserLogedIn=false;
-    const val = "returnToken"
-        localStorage.setItem('return', JSON.stringify(val))
+   
   }
   
   logoutFun(){
+    // const sighOut = "back";
+    // localStorage.setItem('BackVal', JSON.stringify(sighOut))
     this.hds.logout()
+    this.rt.navigate(['form'])
   }
 }

@@ -8,13 +8,14 @@ import { EmployeeComponent } from './home/employee/employee.component';
 import { SignInComponent } from './form/sign-in/sign-in.component';
 import { CanActivate } from './shared/canActivate.guard';
 import { CanDeactivate } from './home/homeShared/canDeactive.guard';
+//import { PreventBackButtonGuard } from './home/homeShared/prevent-back-button.guard';
 
 const routes: Routes = [
   // {path:'',component:HomeComponent},
-  {path:'',component:FormComponent},
-  {path:'form',component:FormComponent,canActivate:[CanDeactivate]},
-  {path:'signIn',component:SignInComponent},
-  {path:'home',component:HomeComponent,canActivate:[CanActivate],children:[
+  {path:'',redirectTo:'form',pathMatch:'full'},
+  {path:'form',component:FormComponent,canActivate:[CanActivate]},
+  {path:'form/signIn',component:SignInComponent},
+  {path:'home',component:HomeComponent,canActivate:[CanDeactivate],children:[
     {path:'branch',component:BranchComponent},
     {path:'company',component:CompanyComponent},
     {path:'employee',component:EmployeeComponent},
