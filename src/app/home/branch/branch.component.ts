@@ -42,13 +42,13 @@ export class BranchComponent implements OnInit{
     this.deleteId = this.service.branchDetail.findIndex((ele)=>{
       return ele.BranchId === data.BranchId && ele.BranchName === data.BranchName
       })
-      if(this.isUpdate){
-        this.isShow=false;
+      if(!this.isUpdate){
+        // this.isShow=false;
         this.service.deleteFunBranch(this.deleteId);
       }
       // else{
         
-      //   this.service.deleteFunBranch(this.deleteId);
+      //   // this.service.deleteFunBranch(this.deleteId);
       // }
   }
   

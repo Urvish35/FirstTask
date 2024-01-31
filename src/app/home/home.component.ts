@@ -16,8 +16,6 @@ export class HomeComponent {
   }
   
   logoutFun(){
-    // const sighOut = "back";
-    // localStorage.setItem('BackVal', JSON.stringify(sighOut))
     this.hds.logout()
     this.rt.navigate(['form'])
   }

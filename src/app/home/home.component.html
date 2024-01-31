@@ -1,4 +1,4 @@
-<body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg); 
+<!-- <body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg); 
 background-repeat: no-repeat; 
 background-size: cover; 
 height:953px;;">
@@ -12,4 +12,25 @@ height:953px;;">
         <button class="btn btn-primary" style="margin-right: 2rem;" (click)="logoutFun()">Sign Out</button>
     </nav>
         <router-outlet></router-outlet>
+</body> -->
+
+
+
+<body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg); 
+background-repeat: no-repeat; 
+background-size: cover; 
+height:953px;;">
+
+<!-- <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'> -->
+<nav class="navbar navbar-dark bg-dark">
+    <!-- <h1>Simple Menu Navigation</h1> -->
+    <div>
+    <a routerLink="/home" class="btn btn-success m-2" id="home">Home</a>
+    <a routerLink="employee" class="btn btn-info m-2" id="employee">Employee</a>
+    <a routerLink="company" class="btn btn-warning m-2" id="company">Company</a>
+    <a routerLink="branch" class="btn btn-danger m-2" id="branch">Branch</a>
+</div>
+<button class="btn btn-primary" style="margin-right: 2rem;" (click)="logoutFun()" id="signOut">Sign Out</button>
+</nav>
+    <router-outlet></router-outlet>
 </body>
