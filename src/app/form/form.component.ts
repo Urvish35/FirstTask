@@ -15,15 +15,20 @@ export class FormComponent {
   }
 
 
-
   passData(val: UserAuthentication) {
 
     this.service.data.filter(item => {
       if (val.UserName == item.UserName && val.pass == item.pass) {
         // console.log("hello");
+
+        if(item.state==undefined){
+          item.state="baseUser"
+        }
+
         const tokenkey = "AuthKey"
         localStorage.setItem('keyPass', JSON.stringify(item))
         localStorage.setItem('token', JSON.stringify(tokenkey))
+        sessionStorage.setItem('role',JSON.stringify(item.state))
         this.rt.navigate(['home'])
         //this.service.isUserLogedIn = true;
       }

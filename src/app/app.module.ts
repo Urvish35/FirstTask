@@ -10,6 +10,7 @@ import { EmployeeComponent } from './home/employee/employee.component';
 import { CompanyComponent } from './home/company/company.component';
 import { BranchComponent } from './home/branch/branch.component';
 import { SignInComponent } from './form/sign-in/sign-in.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignInComponent } from './form/sign-in/sign-in.component';
     EmployeeComponent,
     CompanyComponent,
     BranchComponent,
-    SignInComponent
+    SignInComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,19 @@
 import { Injectable, OnInit } from '@angular/core';
 
 import { UserAuthentication } from "./userAuthentication";
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService implements OnInit{
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
   isUserLogedIn : boolean = true;
+  StringState:any;
+  state:any;
+  permission:string[]=[]
 
   data:UserAuthentication[]=[
     {UserName:"urvish@123",pass:"12345",state:"superAdmin"},
@@ -19,11 +23,20 @@ export class LoginService implements OnInit{
     {UserName:"jay@123",pass:"12345",state:"baseUser"}
   ]
 
-  // varData:UserAuthentication[]=[]
 
   getToken(){
     return localStorage.getItem('token')
   }
+
+  // stateCheck(){
+  //   this.StringState= localStorage.getItem('keyPass');
+  //   this.state=JSON.parse(this.StringState)
+  //   console.log(this.StringState);
+  //   console.log(this.state.state);
+    
+  //   return this.state.state;
+  // }
+
   ngOnInit(){
     
   }

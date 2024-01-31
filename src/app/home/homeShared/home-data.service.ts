@@ -76,6 +76,7 @@ export class HomeDataService {
 
   logout(){
     localStorage.removeItem('token');
+    sessionStorage.removeItem('role');
   }
 
   getToken(){
