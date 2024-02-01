@@ -37,9 +37,13 @@ export class EmployeeComponent implements OnInit{
     this.deleteId=this.dataArray.findIndex(ele=>{
       return ele.EmpId === data.EmpId && ele.EmpName === data.EmpName
     })
-    if(!this.isUpdate){
-      // this.isShow=false;
+    if(this.isUpdate){
+      this.isShow=false;
       this.service.deleteFunEmoloyee(this.deleteId);
+    }
+    else{
+        
+      this.service.deleteFunBranch(this.deleteId);
     }
   }
 

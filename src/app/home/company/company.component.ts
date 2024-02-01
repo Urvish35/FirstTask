@@ -35,9 +35,13 @@ export class CompanyComponent implements OnInit{
     this.deleteId = this.service.companyDetail.findIndex((ele)=>{
       return ele.CompanyId === data.CompanyId && ele.CompanyName === data.CompanyName
       })
-      if(!this.isUpdate){
-        // this.isShow=false;
+      if(this.isUpdate){
+        this.isShow=false;
         this.service.deleteFunCompany(this.deleteId);
+      }
+      else{
+        
+        this.service.deleteFunBranch(this.deleteId);
       }
   }
 

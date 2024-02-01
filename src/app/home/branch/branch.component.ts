@@ -23,12 +23,17 @@ export class BranchComponent implements OnInit{
   isUpdate:boolean=false;
   // isPermission:any;
   constructor(private service:HomeDataService,private curRoute:ActivatedRoute,private ls:LoginService){
+   
+    this.dataArray=this.curRoute.snapshot.data['val']
+    
     
   }
 
 
   ngOnInit(){
-    this.dataArray=this.service.branchDetail;
+    // this.dataArray=this.service.branchDetail;
+
+
     this.hello=localStorage.getItem('keyPass')
     this.data=JSON.parse(this.hello);
     console.log(this.data);
@@ -42,14 +47,14 @@ export class BranchComponent implements OnInit{
     this.deleteId = this.service.branchDetail.findIndex((ele)=>{
       return ele.BranchId === data.BranchId && ele.BranchName === data.BranchName
       })
-      if(!this.isUpdate){
-        // this.isShow=false;
+      if(this.isUpdate){
+        this.isShow=false;
         this.service.deleteFunBranch(this.deleteId);
       }
-      // else{
+      else{
         
-      //   // this.service.deleteFunBranch(this.deleteId);
-      // }
+        this.service.deleteFunBranch(this.deleteId);
+      }
   }
   
 

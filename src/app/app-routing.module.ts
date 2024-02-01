@@ -10,6 +10,7 @@ import { CanActivate } from './shared/canActivate.guard';
 import { CanDeactivate } from './home/homeShared/canDeactive.guard';
 import { CanPermission } from './shared/Permission.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { canResolve } from './home/homeShared/canresolve.guard';
 //import { PreventBackButtonGuard } from './home/homeShared/prevent-back-button.guard';
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:'signIn',component:SignInComponent,canActivate:[CanActivate]},
   {path:'form/signIn',redirectTo:'signIn',pathMatch:'full'},
   {path:'home',component:HomeComponent,canActivate:[CanDeactivate],children:[
-    {path:'branch',component:BranchComponent,data:{Permissions:['superAdmin']},canActivate:[CanPermission]},
+    {path:'branch',component:BranchComponent,data:{Permissions:['superAdmin']},canActivate:[CanPermission],resolve:{val:canResolve}},
     {path:'company',component:CompanyComponent,data:{Permissions:['superAdmin','Admin']},canActivate:[CanPermission]},
     {path:'employee',component:EmployeeComponent,data:{Permissions:['superAdmin','Admin','baseUser']},canActivate:[CanPermission]},
   ]},

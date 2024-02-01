@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HomeItem } from './homeItem';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,14 @@ export class HomeDataService {
 
   getToken(){
     return localStorage.getItem('token')
+  }
+
+  getData(){
+    return new Observable<[]>((sub:any)=>{
+      setTimeout(()=>{
+        sub.next(this.branchDetail);
+      },2000)
+    })
   }
 
 
