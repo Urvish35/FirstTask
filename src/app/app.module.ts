@@ -11,6 +11,8 @@ import { CompanyComponent } from './home/company/company.component';
 import { BranchComponent } from './home/branch/branch.component';
 import { SignInComponent } from './form/sign-in/sign-in.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { FavouriteComponent } from './home/favourite/favourite.component';
+import { UserDataComponent } from './home/user-data/user-data.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     CompanyComponent,
     BranchComponent,
     SignInComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    FavouriteComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,

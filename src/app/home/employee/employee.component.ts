@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeItem } from '../homeShared/homeItem';
+import { EmpItem, HomeItem } from '../homeShared/homeItem';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { LoginService } from 'src/app/shared/login.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit{
-  dataArray:HomeItem[]=[]
-  EditArray:HomeItem[]=[]
+  dataArray:EmpItem[]=[]
+  EditArray:EmpItem[]=[]
   data:any;
-  hello:any;
+  stringData:string | null ='';
   id:number=0;
   deleteId:number=0;
   isShow:boolean=true;
@@ -25,15 +25,17 @@ export class EmployeeComponent implements OnInit{
 
   ngOnInit(){
     this.dataArray=this.service.employeeDetail;
-    this.hello=localStorage.getItem('keyPass')
-    this.data=JSON.parse(this.hello);
+    this.stringData=localStorage.getItem('keyPass')
+    if(this.stringData){
+      this.data=JSON.parse(this.stringData);
+    }
     console.log(this.data);
     // this.isPermission= this.curRoute.snapshot.data['Permissions']
     // console.log(this.isPermission)
     // this.ls.routeData(this.isPermission);
   }
 
-  deleteOpp(data:HomeItem){
+  deleteOpp(data:EmpItem){
     this.deleteId=this.dataArray.findIndex(ele=>{
       return ele.EmpId === data.EmpId && ele.EmpName === data.EmpName
     })
@@ -43,11 +45,11 @@ export class EmployeeComponent implements OnInit{
     }
     else{
         
-      this.service.deleteFunBranch(this.deleteId);
+      this.service.deleteFunEmoloyee(this.deleteId);
     }
   }
 
-  onEditData(val:HomeItem){
+  onEditData(val:EmpItem){
     this.id = this.service.employeeDetail.findIndex((ele)=>{
     return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName
     })

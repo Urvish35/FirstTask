@@ -1,4 +1,4 @@
-
+<!-- for user table -->
 <div class="col-12" style="padding-left: 3rem;">
     <table class="table table-bordered mt-5" style="width: 20rem;">
         <thead class="table-info">
@@ -7,6 +7,7 @@
                 <td>BranchId</td>
                 <td *ngIf="data.state==='Admin' || data.state==='superAdmin'">Update</td>
                 <td *ngIf="data.state==='superAdmin'">Delete</td>
+                <td>favourite</td>
             </tr>
         </thead>
 
@@ -20,11 +21,14 @@
                 <td *ngIf="data.state==='superAdmin'">
                     <a (click)="deleteOpp(item)"><i class="bi bi-trash"></i></a>
                 </td>
+                <td><a (click)="addFavourite(item)"><i class="bi bi-bookmark-star-fill"></i></a></td>
             </tr>
         </tbody>
     </table>
 </div>
 
+
+<!-- for update form -->
 <div *ngIf="isShow">
     <form style="width: 50rem;padding-left: 20rem;" *ngFor="let item of EditArray">
         <div data-mdb-input-init class="form-outline mb-4">

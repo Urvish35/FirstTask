@@ -22,6 +22,14 @@ export class HomeComponent implements OnInit{
     this.router.navigate(['form'])
   }
 
+  favouriteFun(){
+    this.router.navigate(['/favourite'])
+  }
+
+  addUserFun(){
+    this.router.navigate(['userdata'])
+  }
+
   ngOnInit(){
     this.router.events.subscribe((routerEvent)=>{
       if(routerEvent instanceof NavigationStart){

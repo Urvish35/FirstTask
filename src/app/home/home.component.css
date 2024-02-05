@@ -81,6 +81,22 @@ h1{
     color:#1b1b1b;
   }
 
+  #addUser:hover{
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    background:#ffffff;
+    padding:20px 20px; 
+    color:#1b1b1b;
+  }
+
+  #fav:hover{
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    background:#edf11f;
+    padding:20px 20px; 
+    color:#1b1b1b;
+  }
+
   #signOut:hover{
     border:none;
     background:rgba(0, 0, 0, 0.4);

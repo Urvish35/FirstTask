@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/login.service';
+import { SignInAuthentication } from 'src/app/shared/userAuthentication';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,7 @@ export class SignInComponent {
 
   sameId:boolean=true;
 
-  passData(val:any){
+  passData(val:SignInAuthentication){
 
     this.service.data.filter(item=>{
       if((val.UserName==item.UserName)){

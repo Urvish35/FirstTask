@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HomeItem } from './homeItem';
-import { Observable } from 'rxjs';
+import { BranchItem, EmpItem, HomeItem, allInfo, companyItem } from './homeItem';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeDataService {
 
+  // favVal:any
+  userArr:allInfo[]=[]
+
   constructor() { }
-  
 
-  // userDetail:HomeItem[]=[
-  //   {EmpName: "Urvish", EmpId: "1", CompanyName: "Google", CompanyId: "1", BranchName: "Manager", BranchId: "1"},
-  //   {EmpName: "Ronak", EmpId: "2", CompanyName: "Microsoft", CompanyId: "2", BranchName: "Developer", BranchId: "2"},
-  //   {EmpName: "Shubham", EmpId: "3", CompanyName: "Oracle", CompanyId: "3", BranchName: "Hr", BranchId: "3"},
-  //   {EmpName: "Rushi", EmpId: "4", CompanyName: "TCS", CompanyId: "4", BranchName: "QA tester", BranchId: "4"},
-  //   {EmpName: "Jay", EmpId: "5", CompanyName: "Apple", CompanyId: "5", BranchName: "Developer", BranchId: "5"}
-  // ]
+  userDetail:allInfo[]=[
+    {Id: "1",EmpName: "Urvish",  CompanyName: "Google",  BranchName: "Manager"},
+    {Id: "2",EmpName: "Ronak",  CompanyName: "Microsoft",  BranchName: "Developer"},
+    {Id: "3",EmpName: "Shubham",  CompanyName: "Oracle",  BranchName: "Hr"},
+    {Id: "4",EmpName: "Rushi",  CompanyName: "TCS",  BranchName: "QA tester"},
+    {Id: "5",EmpName: "Jay",  CompanyName: "Apple",  BranchName: "Developer"}
+  ]
 
-  branchDetail:any[]=[
+  branchDetail:BranchItem[]=[
     {BranchName: "Manager", BranchId: "1"},
     {BranchName: "Developer", BranchId: "2"},
     {BranchName: "Hr", BranchId: "3"},
@@ -26,7 +28,7 @@ export class HomeDataService {
     {BranchName: "Developer", BranchId: "5"}
   ]
 
-  companyDetail:any[]=[
+  companyDetail:companyItem[]=[
     {CompanyName: "Google", CompanyId: "1"},
     {CompanyName: "Microsoft", CompanyId: "2"},
     {CompanyName: "Oracle", CompanyId: "3"},
@@ -34,7 +36,7 @@ export class HomeDataService {
     {CompanyName: "Apple", CompanyId: "5"}
   ]
 
-  employeeDetail:any[]=[
+  employeeDetail:EmpItem[]=[
     {EmpName: "Urvish", EmpId: "1"},
     {EmpName: "Ronak", EmpId: "2"},
     {EmpName: "Shubham", EmpId: "3"},
@@ -42,16 +44,16 @@ export class HomeDataService {
     {EmpName: "Jay", EmpId: "5"},
   ]
 
-  deleteFunBranch(val:any){
+  deleteFunBranch(val:number){
     this.branchDetail.splice(val,1)
   }
 
-  deleteFunCompany(val:any){
+  deleteFunCompany(val:number){
     this.companyDetail.splice(val,1)
   }
 
-  deleteFunEmoloyee(val:any){
-    console.log(val);
+  deleteFunEmoloyee(val:number){
+    // console.log(val);
     
     this.employeeDetail.splice(val,1)
   }
@@ -85,12 +87,37 @@ export class HomeDataService {
   }
 
   getData(){
-    return new Observable<[]>((sub:any)=>{
+    return new Observable((sub)=>{
       setTimeout(()=>{
         sub.next(this.branchDetail);
-      },2000)
+      },500)
     })
   }
+
+  // favouriteData=new BehaviorSubject<BranchItem>({BranchName: "Manager", BranchId: "1"})
+  
+  favouriteAllData=new BehaviorSubject<allInfo>({Id: "1",EmpName:"Urvish", CompanyName:"Google", BranchName: "Manager"})
+  
+
+  // recieveData(val:BranchItem){
+  //   this.favouriteAllData.next(val);
+  //   console.log(val);
+  // }
+
+  recieveAllData(val:allInfo){
+    this.favouriteAllData.next(val)
+    console.log(val);
+  }
+
+  // reciveVal(val:allInfo){
+  //   debugger
+  //   // if(!this.userArr.includes(val)){
+      
+  //   //   console.log("hello",this.userArr);
+      
+  //   // }
+  //   this.userArr.push(val);
+  // }
 
 
 }

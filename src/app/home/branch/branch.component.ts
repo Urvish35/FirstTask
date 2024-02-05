@@ -1,5 +1,5 @@
 import { UserAuthentication } from 'src/app/shared/userAuthentication';
-import { BranchItem, HomeItem } from '../homeShared/homeItem';
+import { BranchItem, HomeItem, allInfo } from '../homeShared/homeItem';
 import { HomeDataService } from './../homeShared/home-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,15 +12,16 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class BranchComponent implements OnInit{
 
-  dataArray:any[]=[]
-  EditArray:any[]=[]
+  dataArray:BranchItem[]=[]
+  EditArray:BranchItem[]=[]
   // value:HomeItem[]=[]
   data:any;
-  hello:any;
+  stringData:string | null ='';
   id:number=0;
   deleteId:number=0;
   isShow:boolean=true;
   isUpdate:boolean=false;
+  AddInfoBtn:boolean=false;
   // isPermission:any;
   constructor(private service:HomeDataService,private curRoute:ActivatedRoute,private ls:LoginService){
    
@@ -33,17 +34,19 @@ export class BranchComponent implements OnInit{
   ngOnInit(){
     // this.dataArray=this.service.branchDetail;
 
+    this.stringData=localStorage.getItem('keyPass')
+    if(this.stringData){
+      this.data=JSON.parse(this.stringData);
+    }
 
-    this.hello=localStorage.getItem('keyPass')
-    this.data=JSON.parse(this.hello);
-    console.log(this.data);
+    console.log("data",this.data);
     this.isShow==true;
     // this.isPermission= this.curRoute.snapshot.data['Permissions']
     // console.log(this.isPermission)
     // this.ls.routeData(this.isPermission);
   }
 
-  deleteOpp(data:HomeItem){
+  deleteOpp(data:BranchItem){
     this.deleteId = this.service.branchDetail.findIndex((ele)=>{
       return ele.BranchId === data.BranchId && ele.BranchName === data.BranchName
       })
@@ -58,7 +61,7 @@ export class BranchComponent implements OnInit{
   }
   
 
-  onEditData(val:HomeItem){
+  onEditData(val:BranchItem){
     this.id = this.service.branchDetail.findIndex((ele)=>{
     return ele.BranchId === val.BranchId && ele.BranchName === val.BranchName
     })
@@ -76,6 +79,23 @@ export class BranchComponent implements OnInit{
     this.isShow=!this.isShow
     this.EditArray=[]
     this.isUpdate=false;
+  }
+
+  addFavourite(val:BranchItem){
+    // this.service.recieveData(val)
+    this.service.userDetail.filter(item=>{
+      if(item.Id==val.BranchId){
+        this.service.recieveAllData(item)
+      }
+    })
+  }
+
+  // addFavouriteAll(val:allInfo){
+  //   this.service.recieveAllData(val)
+  // }
+
+  AddInfoClick(){
+    this.AddInfoBtn=true;
   }
 
 }

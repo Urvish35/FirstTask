@@ -11,6 +11,8 @@ import { CanDeactivate } from './home/homeShared/canDeactive.guard';
 import { CanPermission } from './shared/Permission.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { canResolve } from './home/homeShared/canresolve.guard';
+import { FavouriteComponent } from './home/favourite/favourite.component';
+import { UserDataComponent } from './home/user-data/user-data.component';
 //import { PreventBackButtonGuard } from './home/homeShared/prevent-back-button.guard';
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
     {path:'company',component:CompanyComponent,data:{Permissions:['superAdmin','Admin']},canActivate:[CanPermission]},
     {path:'employee',component:EmployeeComponent,data:{Permissions:['superAdmin','Admin','baseUser']},canActivate:[CanPermission]},
   ]},
+  {path:'favourite',component:FavouriteComponent},
+  {path:'userdata',component:UserDataComponent},
   {path:'**',component:ErrorPageComponent},
 ];
 
