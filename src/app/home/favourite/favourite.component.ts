@@ -19,7 +19,6 @@ export class FavouriteComponent implements OnInit{
   constructor(private dataService:HomeDataService,private router:Router){}
 
   ngOnInit(){
-    debugger
     // console.log("hello",this.dataService.favouriteData);
     this.dataService.favouriteAllData.pipe(
       map((n)=>{

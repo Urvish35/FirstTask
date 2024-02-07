@@ -1,12 +1,12 @@
-<div class="col-12" style="padding-left: 3rem;">
-    <button class="btn btn-outline-danger" style="margin-top: 20px;" routerLink="/home">home</button>
-    <table class="table table-bordered mt-5" style="width: 40rem;">
-        <thead class="table-info">
+<div class="container" >
+    <button class="btn btn-outline-danger" style="margin: 20px;" routerLink="/home">home</button>
+    <table>
+        <thead >
             <tr>
-                <td>Id</td>
-                <td>EmployeeName</td>
-                <td>CompanyName</td>
-                <td>BranchName</td>
+                <th>Id</th>
+                <th>EmployeeName</th>
+                <th>CompanyName</th>
+                <th>BranchName</th>
             </tr>
         </thead>
 
@@ -25,5 +25,24 @@
 
 
 
-<!-- {{ item.BranchId }}
-{{ item.BranchName}} -->
+
+<!-- <div class="container"> -->
+	<!-- <table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>EmployeeName</th>
+				<th>CompanyName</th>
+				<th>BranchName</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let item of userDataArr">
+			<tr>
+				<td>{{ item.Id}}</td>
+				<td>{{ item.EmpName }}</td>
+				<td>{{ item.CompanyName }}</td>
+				<td>{{ item.BranchName}}</td>
+			</tr>
+		</tbody>
+	</table> -->
+<!-- </div> -->

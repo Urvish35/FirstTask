@@ -63,6 +63,7 @@ export class HomeDataService {
     this.branchDetail.splice(refid,1)
     this.branchDetail.splice(refid,0,{BranchName:BranchName,BranchId:BranchId})
     // this.userDetail[]
+    console.log("branch",this.branchDetail);
   }
 
   editFunCompany(refid:number,CompanyId:string,CompanyName:string){
@@ -96,7 +97,7 @@ export class HomeDataService {
 
   // favouriteData=new BehaviorSubject<BranchItem>({BranchName: "Manager", BranchId: "1"})
   
-  favouriteAllData=new BehaviorSubject<allInfo>({Id: "1",EmpName:"Urvish", CompanyName:"Google", BranchName: "Manager"})
+  favouriteAllData=new BehaviorSubject<allInfo>({Id: "",EmpName:"", CompanyName:"", BranchName: ""})
   
 
   // recieveData(val:BranchItem){

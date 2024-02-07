@@ -39,7 +39,7 @@ export class BranchComponent implements OnInit{
       this.data=JSON.parse(this.stringData);
     }
 
-    console.log("data",this.data);
+    // console.log("data",this.data);
     this.isShow==true;
     // this.isPermission= this.curRoute.snapshot.data['Permissions']
     // console.log(this.isPermission)
@@ -90,12 +90,8 @@ export class BranchComponent implements OnInit{
     })
   }
 
-  // addFavouriteAll(val:allInfo){
-  //   this.service.recieveAllData(val)
-  // }
 
   AddInfoClick(){
     this.AddInfoBtn=true;
   }
-
 }

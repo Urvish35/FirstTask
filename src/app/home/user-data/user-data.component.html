@@ -1,29 +1,29 @@
 <body>
 <div class="container" style="position: absolute;top: 20%;left: 27%;">
     <div class="text">
-        Add Data
+        Add Employee
     </div>
-    <form #userData="ngForm" (ngSubmit)="addData()">
+    <form #userData="ngForm" (ngSubmit)="addData(userData.value)">
         <div class="form-row">
             <div class="input-data">
-                <input type="text" required ngModel>
+                <input type="text" required ngModel name="Id">
                 <div class="underline"></div>
                 <label for="">Id</label>
             </div>
             <div class="input-data">
-                <input type="text" required ngModel>
+                <input type="text" required ngModel name="EmpName">
                 <div class="underline"></div>
                 <label for="">Employee Name</label>
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" required ngModel>
+                <input type="text" required ngModel name="CompanyName">
                 <div class="underline"></div>
                 <label for="">Company Name</label>
             </div>
             <div class="input-data">
-                <input type="text" required ngModel>
+                <input type="text" required ngModel name="BranchName">
                 <div class="underline"></div>
                 <label for="">Branch Name</label>
             </div>
