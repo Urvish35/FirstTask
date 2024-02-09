@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../shared/login.service';
 import { UserAuthentication } from '../shared/userAuthentication';
@@ -9,6 +9,8 @@ import { UserAuthentication } from '../shared/userAuthentication';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+
+  @Input() search:any
 
   constructor(private rt: Router, private service: LoginService) {
     localStorage.removeItem('return')

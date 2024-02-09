@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BranchItem, EmpItem, allInfo, companyItem } from '../homeShared/homeItem';
 import { HomeDataService } from '../homeShared/home-data.service';
@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-data.component.css']
 })
 export class UserDataComponent {
+
+  @Input() search:any
+
   @ViewChild('userData') signupForm?: NgForm
 
   branchObj: BranchItem = { BranchName: "", BranchId: "" }

@@ -1,7 +1,7 @@
 import { UserAuthentication } from 'src/app/shared/userAuthentication';
 import { BranchItem, HomeItem, allInfo } from '../homeShared/homeItem';
 import { HomeDataService } from './../homeShared/home-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/shared/login.service';
 
@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/shared/login.service';
   styleUrls: ['./branch.component.css']
 })
 export class BranchComponent implements OnInit{
+
+  @Input() search:any
 
   dataArray:BranchItem[]=[]
   EditArray:BranchItem[]=[]
@@ -94,4 +96,5 @@ export class BranchComponent implements OnInit{
   AddInfoClick(){
     this.AddInfoBtn=true;
   }
+
 }

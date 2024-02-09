@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnDestroy, OnInit } from '@angular/core';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { Router } from '@angular/router';
 import { BranchItem, HomeItem, allInfo } from '../homeShared/homeItem';
@@ -11,15 +11,13 @@ import { filter, map, of } from 'rxjs';
 })
 export class FavouriteComponent implements OnInit{
 
+  @Input() search:any
+
   userDataArr:allInfo[]=[]
-  // userAllDataArr:allInfo[]=[];
-  // mainArr:any[]=this.dataService.favVal
-  // id:any;
 
   constructor(private dataService:HomeDataService,private router:Router){}
 
   ngOnInit(){
-    // console.log("hello",this.dataService.favouriteData);
     this.dataService.favouriteAllData.pipe(
       map((n)=>{
       if(n.Id=="2"){
@@ -39,29 +37,6 @@ export class FavouriteComponent implements OnInit{
     // })
     
   }
-
-  // ngDoCheck(): void {
-  //   this.userAllDataArr= this.dataService.userArr
-
-    
-
-  //   this.dataService.favouriteAllData.pipe(
-  //     map((n)=>{
-  //     if(n.Id=="2"){
-  //       alert("your id 2")
-  //       return n
-  //     }
-  //     return n
-  //   }))
-  //     .subscribe((item:any)=>{
-  //     debugger
-  //     this.userAllDataArr.push(item)
-  //     // this.dataService.favVal.push(this.userAllDataArr)
-  //     // console.log("dataArray",this.userDataArr)
-  //     this.dataService.reciveVal(item)
-  //   })
-  // }
-
 }
 
 

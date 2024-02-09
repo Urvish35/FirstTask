@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/login.service';
 import { SignInAuthentication } from 'src/app/shared/userAuthentication';
@@ -9,6 +9,8 @@ import { SignInAuthentication } from 'src/app/shared/userAuthentication';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
+
+  @Input() search:any
 
   constructor(private service:LoginService,private router:Router){
   }

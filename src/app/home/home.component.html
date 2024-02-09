@@ -31,9 +31,16 @@ height:953px;;">
             <a routerLink="branch" class="btn btn-danger m-2" id="branch">Branch</a>
         </div>
         <div>
+            
+            <a class="btn btn-secondary m-2" id="filterId" (click)="filterFun()"><i class="bi bi-search"></i></a>
             <a class="btn btn-light m-2" id="addUser" (click)="addUserFun()"><i class="bi bi-person-fill-add"></i></a>
             <a class="btn btn-warning m-2" id="fav" (click)="favouriteFun()"><i class="bi bi-star-fill"></i></a>
             <button class="btn btn-primary m-2" (click)="logoutFun()" id="signOut">Sign Out</button>
+            <div *ngIf="isFilter">
+                <div></div>
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="width: 15rem;" [(ngModel)]="search">
+                <!-- <app-employee [search]="search"></app-employee> -->
+            </div>
         </div>
     </nav>
 

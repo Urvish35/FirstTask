@@ -1,4 +1,4 @@
-<div style="padding-left: 3rem;">
+<div style="padding-left: 3rem;" *ngIf="!isFilterArray">
     <table class="table table-bordered mt-5" style="width: 20rem;">
         <thead class="table-info">
             <tr>
@@ -22,6 +22,35 @@
         </tbody>
     </table>
 </div>
+
+
+
+<div style="padding-left: 3rem;" *ngIf="isFilterArray">
+    <table class="table table-bordered mt-5" style="width: 20rem;">
+        <thead class="table-info">
+            <tr>
+                <th>EmpName</th>
+                <th>EmpId</th>
+                <th *ngIf="data.state==='Admin' || data.state==='superAdmin'">Update</th>
+                <th *ngIf="data.state==='superAdmin'">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of filterArr">
+                <td>{{ item.EmpName}}</td>
+                <td>{{ item.EmpId }}</td>
+                <td *ngIf="data.state==='Admin' || data.state==='superAdmin'">
+                    <a (click)="onEditData(item)"><i class="bi bi-pen-fill"></i></a>
+                </td>
+                <td *ngIf="data.state==='superAdmin'">
+                    <a (click)="deleteOpp(item)"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 
 <div *ngIf="isShow">
 <form style="width: 50rem;padding-left: 20rem;" *ngFor="let item of EditArray">

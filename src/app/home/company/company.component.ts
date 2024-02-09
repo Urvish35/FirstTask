@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HomeItem, companyItem } from '../homeShared/homeItem';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { LoginService } from 'src/app/shared/login.service';
@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit{
+
+  @Input() search:any
+
   dataArray:companyItem[]=[]
   EditArray:companyItem[]=[]
   data:any;

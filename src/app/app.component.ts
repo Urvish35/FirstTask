@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 })
 export class AppComponent{
   title = 'FirstTask';
+
+  @Input() search:any
 
   showLoader:boolean = false;
 

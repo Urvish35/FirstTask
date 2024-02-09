@@ -97,6 +97,14 @@ h1{
     color:#1b1b1b;
   }
 
+  #filterId:hover{
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    background:#97977f;
+    padding:20px 20px; 
+    color:#1b1b1b;
+  }
+
   #signOut:hover{
     border:none;
     background:rgba(0, 0, 0, 0.4);
