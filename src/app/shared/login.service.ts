@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 
 import { UserAuthentication } from "./userAuthentication";
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,8 @@ export class LoginService implements OnInit{
   ngOnInit(){
     
   }
+
+  
 
   
 

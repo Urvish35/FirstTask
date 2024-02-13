@@ -24,6 +24,8 @@ export class BranchComponent implements OnInit{
   isShow:boolean=true;
   isUpdate:boolean=false;
   AddInfoBtn:boolean=false;
+  userDataFlag:boolean=false;
+  userData:any
   // isPermission:any;
   constructor(private service:HomeDataService,private curRoute:ActivatedRoute,private ls:LoginService){
    
@@ -49,6 +51,7 @@ export class BranchComponent implements OnInit{
   }
 
   deleteOpp(data:BranchItem){
+    this.userDataFlag=false;
     this.deleteId = this.service.branchDetail.findIndex((ele)=>{
       return ele.BranchId === data.BranchId && ele.BranchName === data.BranchName
       })
@@ -64,6 +67,7 @@ export class BranchComponent implements OnInit{
   
 
   onEditData(val:BranchItem){
+    this.userDataFlag=false;
     this.id = this.service.branchDetail.findIndex((ele)=>{
     return ele.BranchId === val.BranchId && ele.BranchName === val.BranchName
     })
@@ -97,4 +101,22 @@ export class BranchComponent implements OnInit{
     this.AddInfoBtn=true;
   }
 
+  dataStr:string='';
+
+  userDataVal(Val:string){
+    console.log("data touched",Val);
+    if(Val==this.dataStr){
+      this.userDataFlag=false;
+      this.dataStr='';
+    }
+    else{
+      this.userDataFlag=true;
+      this.dataStr=Val;
+    }
+    this.service.userDetail.filter((item:any)=>{
+      if(item.Id==Val){
+        this.userData=item;
+      }
+    })
+  }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BranchItem, EmpItem, HomeItem, allInfo, companyItem } from './homeItem';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class HomeDataService {
   // favVal:any
   userArr:allInfo[]=[]
 
-  constructor() { }
+  constructor(private _http:HttpClient) { }
 
   userDetail:allInfo[]=[
     {Id: "1",EmpName: "Urvish",  CompanyName: "Google",  BranchName: "Manager"},
@@ -122,6 +123,10 @@ export class HomeDataService {
 
 
   filterSub = new Subject<string>()
+
+  addUser(data:any){
+    return this._http.post('http://localhost:3000/userDetails',data);
+  }
 
   
 

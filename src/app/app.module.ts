@@ -13,6 +13,7 @@ import { SignInComponent } from './form/sign-in/sign-in.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FavouriteComponent } from './home/favourite/favourite.component';
 import { UserDataComponent } from './home/user-data/user-data.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserDataComponent } from './home/user-data/user-data.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

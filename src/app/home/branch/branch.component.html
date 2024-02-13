@@ -1,5 +1,8 @@
 <!-- for user table -->
-<div class="col-12" style="padding-left: 3rem;">
+
+<div style="position: relative;">
+    
+<div class="col col-12" style="padding-left: 3rem;">
     <table class="table table-bordered mt-5" style="width: 20rem;">
         <thead class="table-info">
             <tr>
@@ -12,9 +15,9 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let item of dataArray">
-                <td>{{ item.BranchName}}</td>
-                <td>{{ item.BranchId }}</td>
+            <tr *ngFor="let item of dataArray" style="cursor: pointer;">
+                <td (click)="userDataVal(item.BranchId)">{{ item.BranchName}}</td>
+                <td (click)="userDataVal(item.BranchId)">{{ item.BranchId }}</td>
                 <td *ngIf="data.state==='Admin' || data.state==='superAdmin'">
                     <a (click)="onEditData(item)"><i class="bi bi-pen-fill"></i></a>
                 </td>
@@ -29,6 +32,7 @@
 
 
 <!-- for update form -->
+<div style="position: absolute;margin-left: 20rem;">
 <div *ngIf="isShow">
     <form style="width: 50rem;padding-left: 20rem;" *ngFor="let item of EditArray">
         <div data-mdb-input-init class="form-outline mb-4">
@@ -47,3 +51,31 @@
             (click)="formEditData(BranchId.value,BranchName.value)">Update</button>
     </form>
 </div>
+</div>
+
+</div>
+
+
+<!-- <div class="card">
+<img src="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg" 
+class="card-img-top"
+style="height: 7rem;width:10rem;display: flex;margin-left: 13rem;margin-top: 3rem;clip-path: inset(0px 0px 10px 0 round 50px);">
+<ul>hello</ul>
+<ul>world</ul>
+</div> -->
+<div *ngIf="userDataFlag">
+<div class="card" style="width: 18rem;margin-left: 7rem;">
+    <img class="card-img-top" src="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg" 
+    alt="Card image cap" 
+    style="clip-path: inset(0px 0px 10px 0 round 90px);">
+    <div class="card-body">
+      <h5 class="card-title">User Detail</h5>
+      <p class="card-text">Id: {{ userData.Id }}</p>
+      <p class="card-text">EmpName: {{ userData.EmpName }}</p>
+      <p class="card-text">CompanyName: {{ userData.CompanyName }}</p>
+      <p class="card-text">BranchName: {{ userData.BranchName }}</p>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+  </div>
+</div>
+ 

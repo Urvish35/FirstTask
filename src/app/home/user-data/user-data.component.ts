@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { BranchItem, EmpItem, allInfo, companyItem } from '../homeShared/homeItem';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-data',
@@ -20,7 +21,7 @@ export class UserDataComponent {
   EmpObj: EmpItem = { EmpName: "", EmpId: "" }
 
 
-  constructor(private service: HomeDataService, private router: Router) { }
+  constructor(private service: HomeDataService, private router: Router, private _http:HttpClient) { }
 
   resetFun(val: allInfo) {
     this.signupForm?.reset()
@@ -41,6 +42,8 @@ export class UserDataComponent {
       this.service.employeeDetail.push(this.EmpObj);
       this.signupForm?.reset()
       this.router.navigate(['/home'])
+      this.service.addUser(val).subscribe(item=>{})
+      // return this._http.post('http://localhost:3000/userDetails',val);
     }
     else {
       alert("please Enter All Valid Information")

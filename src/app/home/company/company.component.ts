@@ -21,6 +21,8 @@ export class CompanyComponent implements OnInit{
   deleteId:number=0;
   isShow:boolean=true;
   isUpdate:boolean=false;
+  userDataFlag:boolean=false;
+  userData:any
   // isPermission:any;
   constructor(private service:HomeDataService,private ls:LoginService,private curRoute:ActivatedRoute){}
 
@@ -37,6 +39,7 @@ export class CompanyComponent implements OnInit{
   }
 
   deleteOpp(data:companyItem){
+    this.userDataFlag=false;
     this.deleteId = this.service.companyDetail.findIndex((ele)=>{
       return ele.CompanyId === data.CompanyId && ele.CompanyName === data.CompanyName
       })
@@ -51,6 +54,7 @@ export class CompanyComponent implements OnInit{
   }
 
   onEditData(val:companyItem){
+    this.userDataFlag=false;
     this.id = this.service.companyDetail.findIndex((ele)=>{
     return ele.CompanyId === val.CompanyId && ele.CompanyName === val.CompanyName
     })
@@ -68,5 +72,24 @@ export class CompanyComponent implements OnInit{
     this.isShow=!this.isShow
     this.EditArray=[]
     this.isUpdate=false;
+  }
+
+  dataStr='';
+
+  userDataVal(Val:string){
+    console.log("data touched",Val);
+    if(Val==this.dataStr){
+      this.userDataFlag=false;
+      this.dataStr='';
+    }
+    else{
+      this.userDataFlag=true;
+      this.dataStr=Val;
+    }
+    this.service.userDetail.filter((item:any)=>{
+      if(item.Id==Val){
+        this.userData=item;
+      }
+    })
   }
 }

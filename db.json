@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "userDetails": [
+    {
+      "Id": "1",
+      "EmpName": "Urvish",
+      "CompanyName": "Google",
+      "BranchName": "Manager"
+    },
+    {
+      "Id": "2",
+      "EmpName": "Ronak",
+      "CompanyName": "Microsoft",
+      "BranchName": "Developer"
+    },
+    {
+      "Id": "3",
+      "EmpName": "Shubham",
+      "CompanyName": "Oracle",
+      "BranchName": "Hr"
+    },
+    {
+      "Id": "4",
+      "EmpName": "Rushi",
+      "CompanyName": "TCS",
+      "BranchName": "QA tester"
+    },
+    {
+      "Id": "5",
+      "EmpName": "Jay",
+      "CompanyName": "Apple",
+      "BranchName": "Developer"
+    }
+  ]
+}

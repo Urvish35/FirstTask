@@ -25,6 +25,8 @@ export class EmployeeComponent implements OnInit, DoCheck, OnDestroy {
   isUpdate: boolean = false;
   filterArr: any[] = []
   isFilterArray: boolean = false;
+  userDataFlag:boolean=false;
+  userData:any;
   // isPermission:any;
   subscription: Subscription | undefined;
   constructor(private service: HomeDataService, private ls: LoginService, private curRoute: ActivatedRoute) {
@@ -44,6 +46,7 @@ export class EmployeeComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   deleteOpp(data: EmpItem) {
+    this.userDataFlag=false;
     this.deleteId = this.dataArray.findIndex(ele => {
       return ele.EmpId === data.EmpId && ele.EmpName === data.EmpName
     })
@@ -58,6 +61,7 @@ export class EmployeeComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   onEditData(val: EmpItem) {
+    this.userDataFlag=false;
     this.id = this.service.employeeDetail.findIndex((ele) => {
       return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName
     })
@@ -114,13 +118,31 @@ export class EmployeeComponent implements OnInit, DoCheck, OnDestroy {
 
     this.filterArr = this.dataArray.filter(e => {
       console.log("", e.EmpName.includes(this.search));
-
-      return e.EmpName.toLowerCase().includes(this.search)
+      return e.EmpName.toLowerCase().includes(this.search.toLowerCase())
     })
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  dataStr='';
+
+  userDataVal(Val:string){
+    console.log("data touched",Val);
+    if(Val==this.dataStr){
+      this.userDataFlag=false;
+      this.dataStr='';
+    }
+    else{
+      this.userDataFlag=true;
+      this.dataStr=Val;
+    }
+    this.service.userDetail.filter((item:any)=>{
+      if(item.Id==Val){
+        this.userData=item;
+      }
+    })
   }
 
 }

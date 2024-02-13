@@ -9,9 +9,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of dataArray">
-                <td>{{ item.EmpName}}</td>
-                <td>{{ item.EmpId }}</td>
+            <tr *ngFor="let item of dataArray" style="cursor: pointer;">
+                <td (click)="userDataVal(item.EmpId)">{{ item.EmpName}}</td>
+                <td (click)="userDataVal(item.EmpId)">{{ item.EmpId }}</td>
                 <td *ngIf="data.state==='Admin' || data.state==='superAdmin'">
                     <a (click)="onEditData(item)"><i class="bi bi-pen-fill"></i></a>
                 </td>
@@ -67,3 +67,20 @@
     <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" (click)="formEditData(EmpId.value,EmpName.value)">Update</button>
 </form>
 </div>
+
+
+<div *ngIf="userDataFlag">
+    <div class="card" style="width: 18rem;margin-left: 7rem;">
+        <img class="card-img-top" src="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg" 
+        alt="Card image cap" 
+        style="clip-path: inset(0px 0px 10px 0 round 90px);">
+        <div class="card-body">
+          <h5 class="card-title">User Detail</h5>
+          <p class="card-text">Id: {{ userData.Id }}</p>
+          <p class="card-text">EmpName: {{ userData.EmpName }}</p>
+          <p class="card-text">CompanyName: {{ userData.CompanyName }}</p>
+          <p class="card-text">BranchName: {{ userData.BranchName }}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
