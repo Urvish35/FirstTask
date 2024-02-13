@@ -85,26 +85,6 @@ export class EmployeeComponent implements OnInit, DoCheck, OnDestroy {
   filterVal: string = ''
   search = ''
 
-  // ngOnChanges(changes: SimpleChanges) {
-
-
-
-  //   for(let change in changes){
-  //     // console.log("hello",change.valueOf())
-  //     let chan = changes[change]
-  //     console.log("empval",chan.currentValue);
-  //     let val = chan.currentValue;
-  //     this.dataArray.filter((item)=>{
-  //       if(item.EmpName.toLowerCase()==val){
-  //         this.filterArr.push(item)
-  //       }
-  //     })
-  //     console.log("emp",this.filterArr); 
-
-
-  //   }
-  // }
-
   ngDoCheck() {
     this.service.filterSub.subscribe(i => {
       console.log(i);

@@ -96,30 +96,15 @@ export class HomeDataService {
     })
   }
 
-  // favouriteData=new BehaviorSubject<BranchItem>({BranchName: "Manager", BranchId: "1"})
   
   favouriteAllData=new BehaviorSubject<allInfo>({Id: "",EmpName:"", CompanyName:"", BranchName: ""})
   
 
-  // recieveData(val:BranchItem){
-  //   this.favouriteAllData.next(val);
-  //   console.log(val);
-  // }
 
   recieveAllData(val:allInfo){
     this.favouriteAllData.next(val)
     console.log(val);
   }
-
-  // reciveVal(val:allInfo){
-  //   debugger
-  //   // if(!this.userArr.includes(val)){
-      
-  //   //   console.log("hello",this.userArr);
-      
-  //   // }
-  //   this.userArr.push(val);
-  // }
 
 
   filterSub = new Subject<string>()
@@ -128,6 +113,11 @@ export class HomeDataService {
     return this._http.post('http://localhost:3000/userDetails',data);
   }
 
+  GetUser(){
+    return this._http.get('http://localhost:3000/userDetails');
+  }
+
+  
   
 
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HomeItem, companyItem } from '../homeShared/homeItem';
+import { HomeItem, allInfo, companyItem } from '../homeShared/homeItem';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { LoginService } from 'src/app/shared/login.service';
 import { ActivatedRoute } from '@angular/router';
@@ -28,6 +28,7 @@ export class CompanyComponent implements OnInit{
 
   ngOnInit(){
     this.dataArray=this.service.companyDetail;
+    this.openUserForm();
     this.stringData=localStorage.getItem('keyPass')
     if(this.stringData){
       this.data=JSON.parse(this.stringData);
@@ -90,6 +91,12 @@ export class CompanyComponent implements OnInit{
       if(item.Id==Val){
         this.userData=item;
       }
+    })
+  }
+
+  openUserForm(){
+    return this.service.GetUser().subscribe(res=>{
+      console.log("res",res);
     })
   }
 }

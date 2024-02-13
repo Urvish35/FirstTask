@@ -21,31 +21,97 @@
       "Id": "1",
       "EmpName": "Urvish",
       "CompanyName": "Google",
-      "BranchName": "Manager"
+      "BranchName": "Manager",
+      "id": 1
     },
     {
       "Id": "2",
       "EmpName": "Ronak",
       "CompanyName": "Microsoft",
-      "BranchName": "Developer"
+      "BranchName": "Developer",
+      "id": 2
     },
     {
       "Id": "3",
       "EmpName": "Shubham",
       "CompanyName": "Oracle",
-      "BranchName": "Hr"
+      "BranchName": "Hr",
+      "id": 3
     },
     {
       "Id": "4",
       "EmpName": "Rushi",
       "CompanyName": "TCS",
-      "BranchName": "QA tester"
+      "BranchName": "QA tester",
+      "id": 4
     },
     {
       "Id": "5",
       "EmpName": "Jay",
       "CompanyName": "Apple",
-      "BranchName": "Developer"
+      "BranchName": "Developer",
+      "id": 5
+    },
+    {
+      "Id": "6",
+      "EmpName": "priyanka",
+      "CompanyName": "BD",
+      "BranchName": "JD",
+      "id": 6
+    }
+  ],
+  "EmpDetail": [
+    {
+      "Id": "1",
+      "EmpName": "Urvish",
+      "id": 1
+    },
+    {
+      "Id": "2",
+      "EmpName": "Ronak",
+      "id": 2
+    },
+    {
+      "Id": "3",
+      "EmpName": "Shubham",
+      "id": 3
+    },
+    {
+      "Id": "4",
+      "EmpName": "Rushi",
+      "id": 4
+    },
+    {
+      "Id": "5",
+      "EmpName": "Jay",
+      "id": 5
+    }
+  ],
+  "companyDetail": [
+    {
+      "Id": "1",
+      "CompanyName": "Urvish",
+      "id": 1
+    },
+    {
+      "Id": "2",
+      "CompanyName": "Ronak",
+      "id": 2
+    },
+    {
+      "Id": "3",
+      "CompanyName": "Shubham",
+      "id": 3
+    },
+    {
+      "Id": "4",
+      "CompanyName": "Rushi",
+      "id": 4
+    },
+    {
+      "Id": "5",
+      "CompanyName": "Jay",
+      "id": 5
     }
   ]
 }
